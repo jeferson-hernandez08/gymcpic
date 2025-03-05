@@ -16,34 +16,33 @@
         <div class="data-container">
             <form action="/programaFormacion/update" method="post">
                 <div class="form-group">
-                    <label for="">Id del centro de formacion</label>
-                    <input type="text" readonly value="<?php echo $centroFormacion->id ?>"  name="txtId" id="txtId" class="form-control">
+                    <label for="txtId">Id del programa de formacion</label>
+                    <input type="text" readonly value="<?php echo $programa->id ?>"  name="txtId" id="txtId" class="form-control">
                 </div>
-
-
-
-                
                 <div class="form-group">
-                    <label for="">Id del centro</label>
-                    <select name="txtIdCentro" id="txtIdCentro">
+                    <label for="txtCodigo">Codigo del Programa de formacion</label>
+                    <input type="text" value="<?php echo $programa->codigo ?>" name="txtCodigo" id="txtCodigo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtNombre">Nombre del programa de formacion</label>
+                    <input type="text" value="<?php echo $programa->nombre ?>" name="txtNombre" id="txtNombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtFkIdCentroFormacion">ID del Centro</label>
+                    <select name="txtFkIdCentroFormacion" id="txtFkIdCentroFormacion">
+                    <option value=''>Selecciona un centro de formación</option>
                         <?php
-                        if($centros && is_array($centros)) {
-                            foreach ($centros as $item) {
-                                if($programa->FkIdCentroFormacion == $item->id) {
-                                    echo "<option selected value='$item->id'>$item->$nombre</option>";
-                                } else {
-
+                            if (isset($centros) && is_array($centros)) {
+                                foreach ($centros as $key => $value) {
+                                    if ($programa->FkIdCentroFormacion == $value->id) {
+                                        echo "<option value=".$value->id." selected>".$value->nombre."</option>";
+                                    }
+                                    echo "<option value=".$value->id.">".$value->nombre."</option>";
                                 }
-                                echo "<option value='$item->id'>$item->$nombre</option>";
+                            } else {
+                                echo "ERROR";
                             }
-
-
-                        }
-
-
-
-
-                        ?>
+                            ?>
                     </select>
                 </div>
                 <div class="form-group">

@@ -26,11 +26,11 @@ class ProgramaFormacionController extends BaseController {
 
     public function newProgramaFormacion(){
         // Logica para capturar centros de formacion
-        $programaObj = new CentroFormacionModel();
-        $programas = $programaObj->getAll();
+        $centroObj = new CentroFormacionModel();
+        $centros = $centroObj->getAll();
         
         // Llamamos a la vista
-        $data = ["centros" => $programas];
+        $data = ["centros" => $centros];
         $this->render('programaFormacion/newProgramaFormacion.php', $data);
     }
 
@@ -56,10 +56,10 @@ class ProgramaFormacionController extends BaseController {
         $data = [
             'programa' => $programaInfo
         ];
-        $this->render('programas/viewOnePrograma.php', $data);
+        $this->render('programaFormacion/viewOneProgramaFormacion.php', $data);
     }
 
-    public function editPrograma($id) {
+    public function editProgramaFormacion($id) {
         $programaObj = new ProgramaFormacionModel();
         $programaInfo = $programaObj->getProgramaFormacion($id);
         $centrosObj = new CentroFormacionModel();
@@ -68,7 +68,7 @@ class ProgramaFormacionController extends BaseController {
             "programa" => $programaInfo,
             "centros" => $centrosInfo
         ];
-        $this->render('programas/editProgramaFormacion.php' ,$data);
+        $this->render('programaFormacion/editProgramaFormacion.php' ,$data);
     }
 
     public function updateProgramaFormacion() {

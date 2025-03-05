@@ -15,15 +15,15 @@
     <div class="container">
         <div class="data-container">
             <?php
-                if($programaFormacion && is_object($programaFormacion)) {
+                if($programa && is_object($programa)) {
                     // echo "<pre>";
                     // print_r($rol);
                     // echo "<pre>";
                     echo "<div class='record'>
-                            <span>ID: $programaFormacion->id - </span>
-                            <span>Codigo: $programaFormacion->codigo</span>
-                            <span>Nombre: $programaFormacion->nombre</span>
-                            <span>Codigo: $programaFormacion->nombreCentro</span>
+                            <span>ID: $programa->id - </span>
+                            <span>Codigo: $programa->codigo</span>
+                            <span>Nombre: $programa->nombre</span>
+                            <span>Centro: $programa->nombreCentro</span>
                           </div>";
                 }
 

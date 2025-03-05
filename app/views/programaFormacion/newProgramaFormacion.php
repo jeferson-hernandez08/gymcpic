@@ -24,22 +24,18 @@
                     <input type="text" name="txtNombre" id="txtNombre" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="txtFkIdCentroFormacion">Id del Centro de Formación</label>
-                    <select name="txtFkIdCentroFormacion" id="txtFkIdCentroFormacion" required>  
-                </div>
-                <div class="form-group">
                     <label for="txtFkIdCentroFormacion">Id del Centro de Formacion</label>
-                        <select name="txtFkIdCentroFormacion" id="txtFkIdCentroFormacion">
-                            <?php
-                                if (isset($centros) && is_array($centros)) {
-                                    foreach ($centros as $key => $value) {
-                                        echo "<option value=".$value->id.">".$value->nombre."</option>";
-                                    }
-                                } else {
-                                    echo "ERROR";
+                    <select name="txtFkIdCentroFormacion" id="txtFkIdCentroFormacion">
+                        <?php
+                            if (isset($centros) && is_array($centros)) {
+                                foreach ($centros as $key => $value) {
+                                    echo "<option value=".$value->id.">".$value->nombre."</option>";
                                 }
-                            ?>
-                        </select>
+                            } else {
+                                echo "ERROR";
+                            }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit">Guardar</button>

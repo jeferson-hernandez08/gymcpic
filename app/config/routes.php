@@ -108,7 +108,7 @@ return [
     ],
     '/programaFormacion/update'=> [
         'controller' =>'App\Controllers\programaFormacionController',
-        'action' => 'uodateProgramaFormacion'
+        'action' => 'updateProgramaFormacion'
     ],
 
     // actividad 
