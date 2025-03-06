@@ -6,6 +6,7 @@ require_once '../app/controllers/rolController.php';   // Se crea la ruta para i
 require_once '../app/controllers/centroFormacionController.php';
 require_once '../app/controllers/programaFormacionController.php';
 require_once '../app/controllers/actividadController.php';
+require_once '../app/controllers/grupoController.php';     // Importante agregar ruta
 
 $url = $_SERVER['REQUEST_URI'];   // Detecta lo que se ingresa en la url
 //echo $url;

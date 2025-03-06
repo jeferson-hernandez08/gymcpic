@@ -183,6 +183,40 @@ return [
         'action' => 'deleteGrupo'
     ],
 
+    //grupo # 2
+    '/registroIngreso/index'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'index'
+    ],
+    '/registroIngreso/view'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'view'
+    ],
+    '/registroIngreso/new' => [
+        'controller' => 'App\Controllers\grupoController',
+        'action' => 'newGrupo'     // Nombre de la funcion 
+    ], 
+    '/registroIngreso/create'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'createGrupo'
+    ],
+    '/registroIngreso/view/(\d+)'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'viewGrupo'
+    ],
+    '/registroIngreso/edit/(\d+)'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'editGrupo'
+    ],
+    '/registroIngreso/update'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'updateGrupo'
+    ],
+    '/registroIngreso/delete/(\d+)'=> [
+        'controller' =>'App\Controllers\grupoController',
+        'action' => 'deleteGrupo'
+    ],
+
 
 
 ];

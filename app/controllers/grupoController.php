@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;              // QUEDE AQUÍ CONTINUAR CON GRUPOCONTROLLER
+namespace App\Controllers;             
 use App\Models\GrupoModel;
-use App\Models\ProgramaFormacionModel; // Importar la clase ProgramaFormacionModel
+use App\Models\ProgramaFormacionModel; // Importar la clase ProgramaFormacionModel (Para el recibir los datos de programaFormacion)
 
 require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/GrupoModel.php";

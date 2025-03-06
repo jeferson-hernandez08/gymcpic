@@ -35,5 +35,7 @@ define("COLLATION", 'utf8mb4_unicode_ci');
 
 // Prueba commit   // Prueba commit 
 
+// Tenemos : FKIdCentroFormacion | fkIdProgForm |
+
 
 
