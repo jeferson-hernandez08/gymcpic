@@ -22,7 +22,7 @@ class ProgramaFormacionModel extends BaseModel {
             $sql = "INSERT INTO $this->table (codigo, nombre, FkIdCentroFormacion) VALUES (:codigo, :nombre, :FkIdCentroFormacion)";
             // 1. Se prepara la consulta
             $statement = $this->dbConnection->prepare($sql);
-            $codigo = $this->codigo ?? '';
+            $codigo = $this->codigo ?? '';      // Estos nulos no se usan es opcional
             $nombre = $this->nombre ?? '';
             $fkIdCentroFormacion = $this->fkIdCentroFormacion ?? '';
 
