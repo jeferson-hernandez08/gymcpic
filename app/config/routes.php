@@ -185,36 +185,36 @@ return [
 
     //grupo # 2
     '/registroIngreso/index'=> [
-        'controller' =>'App\Controllers\grupoController',
+        'controller' =>'App\Controllers\registroIngresoController',
         'action' => 'index'
     ],
     '/registroIngreso/view'=> [
-        'controller' =>'App\Controllers\grupoController',
+        'controller' =>'App\Controllers\registroIngresoController',
         'action' => 'view'
     ],
     '/registroIngreso/new' => [
-        'controller' => 'App\Controllers\grupoController',
-        'action' => 'newGrupo'     // Nombre de la funcion 
+        'controller' => 'App\Controllers\registroIngresoController',
+        'action' => 'newRegistroIngreso'     // Nombre de la funcion 
     ], 
     '/registroIngreso/create'=> [
-        'controller' =>'App\Controllers\grupoController',
-        'action' => 'createGrupo'
+        'controller' =>'App\Controllers\registroIngresoController',
+        'action' => 'createRegistroIngreso'
     ],
     '/registroIngreso/view/(\d+)'=> [
-        'controller' =>'App\Controllers\grupoController',
-        'action' => 'viewGrupo'
+        'controller' =>'App\Controllers\registroIngresoController',
+        'action' => 'viewRegistroIngreso'
     ],
     '/registroIngreso/edit/(\d+)'=> [
-        'controller' =>'App\Controllers\grupoController',
-        'action' => 'editGrupo'
+        'controller' =>'App\Controllers\registroIngresoController',
+        'action' => 'editRegistroIngreso'
     ],
     '/registroIngreso/update'=> [
-        'controller' =>'App\Controllers\grupoController',
-        'action' => 'updateGrupo'
+        'controller' =>'App\Controllers\registroIngresoController',
+        'action' => 'updateRegistroIngreso'
     ],
     '/registroIngreso/delete/(\d+)'=> [
-        'controller' =>'App\Controllers\grupoController',
-        'action' => 'deleteGrupo'
+        'controller' =>'App\Controllers\registroIngresoController',
+        'action' => 'deleteRegistroIngreso'
     ],
 
 
