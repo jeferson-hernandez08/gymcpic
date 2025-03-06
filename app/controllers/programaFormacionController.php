@@ -83,6 +83,12 @@ class ProgramaFormacionController extends BaseController {
         header("location: /programaFormacion/view");
     }
 
+    public function deleteProgramaFormacion($id) {
+        $programaObj = new ProgramaFormacionModel();
+        $programaObj->deleteProgramaFormacion($id);
+        $this->redirectTo("programaFormacion/view");
+    }
+
     
 
 

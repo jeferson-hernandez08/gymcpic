@@ -110,6 +110,10 @@ return [
         'controller' =>'App\Controllers\programaFormacionController',
         'action' => 'updateProgramaFormacion'
     ],
+    '/programaFormacion/delete/(\d+)'=> [
+        'controller' =>'App\Controllers\programaFormacionController',
+        'action' => 'deleteProgramaFormacion'                          // Llama a la funcion deleteProgramaFormacion del programaFormacionModel
+    ],
 
     // actividad 
     '/actividad/index'=> [

@@ -70,4 +70,16 @@ class ProgramaFormacionModel extends BaseModel {
             echo "No se pudo editar el Programa de formacion".$ex->getMessage();
         }
     }
+
+    public function deleteProgramaformacion($id){
+        try {
+            $sql = "DELETE FROM $this->table WHERE id=:id";
+            $statement = $this->dbConnection->prepare($sql);
+            $statement->bindParam(":id", $id, PDO::PARAM_INT);
+            $result = $statement->execute();
+            return $result;
+        } catch (PDOException $ex) {
+            echo "No se pudo eliminar el Programa de formacion".$ex->getMessage();
+        }
+    }
 }
