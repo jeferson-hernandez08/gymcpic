@@ -183,7 +183,7 @@ return [
         'action' => 'deleteGrupo'
     ],
 
-    //grupo # 2
+    //Registro Ingreso # 2
     '/registroIngreso/index'=> [
         'controller' =>'App\Controllers\registroIngresoController',
         'action' => 'index'
@@ -216,6 +216,8 @@ return [
         'controller' =>'App\Controllers\registroIngresoController',
         'action' => 'deleteRegistroIngreso'
     ],
+
+    
 
 
 

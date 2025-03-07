@@ -1,15 +1,15 @@
 <?php
-namespace App\Controllers;                 // QUEDE AQUI REVISAR 
+namespace App\Controllers;                  
 use App\Models\RegistroIngresoModel;
 use App\Models\UsuarioModel; // Importar la clase UsuarioModel
 use App\Models\ActividadModel; // Importar la clase ActividadModel
-use App\Models\TrainerModel; // Importar la clase TrainerModel
+use App\Models\TrainerModel; // Importar la clase TrainerModel    // DUDA 
 
 require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/RegistroIngresoModel.php";
 require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 require_once MAIN_APP_ROUTE."../models/ActividadModel.php";
-require_once MAIN_APP_ROUTE."../models/TrainerModel.php";
+require_once MAIN_APP_ROUTE."../models/TrainerModel.php";       // DUDA
 
 class RegistroIngresoController extends BaseController {
     public function index(){
@@ -32,7 +32,7 @@ class RegistroIngresoController extends BaseController {
         // Lógica para capturar usuarios, actividades y trainers
         $usuarioObj = new UsuarioModel();
         $actividadObj = new ActividadModel();
-        $trainerObj = new TrainerModel();
+        $trainerObj = new TrainerModel();        // DUDA
         
         $usuarios = $usuarioObj->getAll();
         $actividades = $actividadObj->getAll();
@@ -83,15 +83,15 @@ class RegistroIngresoController extends BaseController {
         $actividadObj = new ActividadModel();
         $trainerObj = new TrainerModel();
         
-        $usuarios = $usuarioObj->getAll();
-        $actividades = $actividadObj->getAll();
-        $trainers = $trainerObj->getAll();
+        $usuariosInfo = $usuarioObj->getAll();
+        $actividadesInfo = $actividadObj->getAll();
+        $trainersInfo = $trainerObj->getAll();
         
         $data = [
             "registro" => $registroInfo,
-            "usuarios" => $usuarios,
-            "actividades" => $actividades,
-            "trainers" => $trainers
+            "usuarios" => $usuariosInfo,
+            "actividades" => $actividadesInfo,
+            "trainers" => $trainersInfo
         ];
         $this->render('registroIngreso/editRegistroIngreso.php' ,$data);
     }

@@ -4,7 +4,7 @@ namespace App\Models;
 use PDO;
 use PDOException;
 
-require_once MAIN_APP_ROUTE . "../models/BaseModel.php";    // QUEDE AQUI EN REVISON AL REGISTRO INGRESO MODEL
+require_once MAIN_APP_ROUTE . "../models/BaseModel.php";  
 
 class RegistroIngresoModel extends BaseModel {
     public function __construct(
