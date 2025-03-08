@@ -10,7 +10,7 @@ require_once '../app/controllers/grupoController.php';     // Importante agregar
 require_once '../app/controllers/registroIngresoController.php'; 
 require_once '../app/controllers/tipoUsuarioGymController.php';
 require_once '../app/controllers/controlProgresoController.php';
-require_once '../app/controllers/usuariooController.php';
+require_once '../app/controllers/usuarioController.php';
 
 
 $url = $_SERVER['REQUEST_URI'];   // Detecta lo que se ingresa en la url

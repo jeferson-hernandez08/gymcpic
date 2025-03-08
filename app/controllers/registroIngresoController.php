@@ -9,7 +9,7 @@ require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/RegistroIngresoModel.php";
 require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 require_once MAIN_APP_ROUTE."../models/ActividadModel.php";
-require_once MAIN_APP_ROUTE."../models/TrainerModel.php";       // DUDA
+//require_once MAIN_APP_ROUTE."../models/TrainerModel.php";       // DUDA
 
 class RegistroIngresoController extends BaseController {
     public function index(){
@@ -32,17 +32,17 @@ class RegistroIngresoController extends BaseController {
         // Lógica para capturar usuarios, actividades y trainers
         $usuarioObj = new UsuarioModel();
         $actividadObj = new ActividadModel();
-        $trainerObj = new TrainerModel();        // DUDA
+        //$trainerObj = new TrainerModel();        // DUDA
         
         $usuarios = $usuarioObj->getAll();
         $actividades = $actividadObj->getAll();
-        $trainers = $trainerObj->getAll();
+        //$trainers = $trainerObj->getAll();
         
         // Llamamos a la vista
         $data = [
             "usuarios" => $usuarios,
             "actividades" => $actividades,
-            "trainers" => $trainers
+            //"trainers" => $trainers
         ];
         $this->render('registroIngreso/newRegistroIngreso.php', $data);
     }
@@ -81,17 +81,17 @@ class RegistroIngresoController extends BaseController {
         
         $usuarioObj = new UsuarioModel();
         $actividadObj = new ActividadModel();
-        $trainerObj = new TrainerModel();
+        //$trainerObj = new TrainerModel();
         
         $usuariosInfo = $usuarioObj->getAll();
         $actividadesInfo = $actividadObj->getAll();
-        $trainersInfo = $trainerObj->getAll();
+        //$trainersInfo = $trainerObj->getAll();
         
         $data = [
             "registro" => $registroInfo,
             "usuarios" => $usuariosInfo,
             "actividades" => $actividadesInfo,
-            "trainers" => $trainersInfo
+            //"trainers" => $trainersInfo
         ];
         $this->render('registroIngreso/editRegistroIngreso.php' ,$data);
     }

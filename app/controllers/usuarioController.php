@@ -11,7 +11,7 @@ require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 require_once MAIN_APP_ROUTE."../models/RolModel.php";
 require_once MAIN_APP_ROUTE."../models/GrupoModel.php";
 require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
-require_once MAIN_APP_ROUTE."../models/TipoUserGymModel.php";
+//require_once MAIN_APP_ROUTE."../models/TipoUserGymModel.php";
 
 class UsuarioController extends BaseController {
     public function index(){
@@ -41,15 +41,15 @@ class UsuarioController extends BaseController {
         $centroObj = new CentroFormacionModel();
         $centros = $centroObj->getAll();
 
-        $tipoUserGymObj = new TipoUserGymModel();
-        $tiposUserGym = $tipoUserGymObj->getAll();
+        // $tipoUserGymObj = new TipoUserGymModel();
+        // $tiposUserGym = $tipoUserGymObj->getAll();
         
         // Llamamos a la vista
         $data = [
             "roles" => $roles,
             "grupos" => $grupos,
             "centros" => $centros,
-            "tiposUserGym" => $tiposUserGym
+            //"tiposUserGym" => $tiposUserGym
         ];
         $this->render('usuario/newUsuario.php', $data);
     }
@@ -108,15 +108,15 @@ class UsuarioController extends BaseController {
         $centroObj = new CentroFormacionModel();
         $centros = $centroObj->getAll();
 
-        $tipoUserGymObj = new TipoUserGymModel();
-        $tiposUserGym = $tipoUserGymObj->getAll();
+        // $tipoUserGymObj = new TipoUserGymModel();
+        // $tiposUserGym = $tipoUserGymObj->getAll();
 
         $data = [
             "usuario" => $usuarioInfo,
             "roles" => $roles,
             "grupos" => $grupos,
             "centros" => $centros,
-            "tiposUserGym" => $tiposUserGym
+            //"tiposUserGym" => $tiposUserGym
         ];
         $this->render('usuario/editUsuario.php', $data);
     }
