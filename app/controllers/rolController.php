@@ -25,6 +25,7 @@ class RolController extends BaseController {
     public function newRol() {
         $this->render('rol/newRol.php');      // Renderiza o muestra el formulario
     }
+    
     public function createRol() {
         if(isset($_POST['txtNombre'])) {
             $nombre = $_POST['txtNombre'] ?? null;

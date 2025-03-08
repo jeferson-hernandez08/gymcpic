@@ -183,7 +183,7 @@ return [
         'action' => 'deleteGrupo'
     ],
 
-    //Registro Ingreso # 2
+    //registroIngreso # 2
     '/registroIngreso/index'=> [
         'controller' =>'App\Controllers\registroIngresoController',
         'action' => 'index'
@@ -217,7 +217,39 @@ return [
         'action' => 'deleteRegistroIngreso'
     ],
 
-    
+    // tipoUsuarioGym # 3
+    '/tipoUsuarioGym/index' => [
+        'controller' => 'App\Controllers\tipoUsuarioController',
+        'action' => 'index'
+    ],
+    '/tipoUsuarioGym/view' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'view'
+    ],
+    '/tipoUsuarioGym/new' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'newTipoUsuarioGym'
+    ],
+    '/tipoUsuarioGym/create' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'createTipoUsuarioGym'
+    ],
+    '/tipoUsuarioGym/view/(\d+)' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'viewTipoUsuarioGym'
+    ],
+    '/tipoUsuarioGym/edit/(\d+)' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'editTipoUsuarioGym'
+    ],
+    '/tipoUsuarioGym/update' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'updateTipoUsuarioGym'
+    ],
+    '/tipoUsuarioGym/delete/(\d+)' => [
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
+        'action' => 'deleteTipoUsuarioGym'
+    ],
 
 
 
