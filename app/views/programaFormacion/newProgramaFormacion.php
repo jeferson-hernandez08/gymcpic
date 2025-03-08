@@ -42,6 +42,8 @@
                         ?>
                     </select>
                 </div>
+
+                <!-- Botón de Guardar -->
                 <div class="form-group">
                     <button type="submit">Guardar</button>
                 </div>

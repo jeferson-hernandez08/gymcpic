@@ -49,8 +49,7 @@ class ProgramaFormacionController extends BaseController {
         }
     }
 
-    public function viewProgramaFormacion($id)
-    {
+    public function viewProgramaFormacion($id) {
         $programaObj = new ProgramaFormacionModel();
         $programaInfo = $programaObj->getProgramaFormacion($id);
         $data = [

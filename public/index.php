@@ -7,8 +7,11 @@ require_once '../app/controllers/centroFormacionController.php';
 require_once '../app/controllers/programaFormacionController.php';
 require_once '../app/controllers/actividadController.php';
 require_once '../app/controllers/grupoController.php';     // Importante agregar ruta
-//require_once '../app/controllers/registroIngresoController.php'; 
+require_once '../app/controllers/registroIngresoController.php'; 
 require_once '../app/controllers/tipoUsuarioGymController.php';
+require_once '../app/controllers/controlProgresoController.php';
+require_once '../app/controllers/usuariooController.php';
+
 
 $url = $_SERVER['REQUEST_URI'];   // Detecta lo que se ingresa en la url
 //echo $url;

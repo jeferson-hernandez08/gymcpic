@@ -219,7 +219,7 @@ return [
 
     // tipoUsuarioGym # 3
     '/tipoUsuarioGym/index' => [
-        'controller' => 'App\Controllers\tipoUsuarioController',
+        'controller' => 'App\Controllers\tipoUsuarioGymController',
         'action' => 'index'
     ],
     '/tipoUsuarioGym/view' => [
@@ -249,6 +249,40 @@ return [
     '/tipoUsuarioGym/delete/(\d+)' => [
         'controller' => 'App\Controllers\tipoUsuarioGymController',
         'action' => 'deleteTipoUsuarioGym'
+    ],
+
+    // controlProgreso # 4
+    '/controlProgreso/index' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'index'
+    ],
+    '/controlProgreso/view' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'view'
+    ],
+    '/controlProgreso/new' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'newControlProgreso'
+    ],
+    '/controlProgreso/create' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'createControlProgreso'
+    ],
+    '/controlProgreso/view/(\d+)' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'viewControlProgreso'
+    ],
+    '/controlProgreso/edit/(\d+)' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'editControlProgreso'
+    ],
+    '/controlProgreso/update' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'updateControlProgreso'
+    ],
+    '/controlProgreso/delete/(\d+)' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'deleteControlProgreso'
     ],
 
 
