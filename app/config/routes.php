@@ -285,6 +285,40 @@ return [
         'action' => 'deleteControlProgreso'
     ],
 
+    // usuario # 5
+    '/usuario/index' => [
+        'controller' => 'App\Controllers\controlProgresoController',
+        'action' => 'index'
+    ],
+    '/usuario/view' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'view'
+    ],
+    '/usuario/new' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'newUsuario'
+    ],
+    '/usuario/create' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'createUsuario'
+    ],
+    '/usuario/view/(\d+)' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'viewUsuario'
+    ],
+    '/usuario/edit/(\d+)' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'editUsuario'
+    ],
+    '/usuario/update' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'updateUsuario'
+    ],
+    '/usuario/delete/(\d+)' => [
+        'controller' => 'App\Controllers\usuarioController',
+        'action' => 'deleteUsuario'
+    ],
+
 
 
 ];
