@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 class BaseController {
+    protected string $layaot = "main_layout";
     public function render(string $view, array $arrayData = null) {
         // Ejemplo 1 de capture
         // echo "<pre>";
@@ -17,9 +18,10 @@ class BaseController {
                 // Se crean variables de acuerdo las keys
                 $$key = $value;
             }
-
         }
-        include_once MAIN_APP_ROUTE.'../views/'.$view;   // rols/viewRol.php
+        $content_once = MAIN_APP_ROUTE. "../views/$view";
+        $layout = MAIN_APP_ROUTE. "../views/layouts/{$this->layout.php}";
+        include_once $layout;   // rols/viewRol.php
         //echo "<br>Renderiza la página con datos";
     }
     public function formatNumber(){

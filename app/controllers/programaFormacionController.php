@@ -8,6 +8,12 @@ require_once MAIN_APP_ROUTE."../models/ProgramaFormacionModel.php";
 require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
 
 class ProgramaFormacionController extends BaseController {
+    public function __construct(){
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+    }
+
+
     public function index(){
         echo "<br>CONTROLLER> ProgramaFormacionController";
         echo "<br>ACTION> index";
@@ -20,7 +26,10 @@ class ProgramaFormacionController extends BaseController {
         $programas = $programaObj->getAll();
         
         // Llamamos a la vista
-        $data = ["programas" => $programas];
+        $data = [
+            "title"     => "programas Formación",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
+            "programas" => $programas
+        ];
         $this->render('programaFormacion/viewProgramaFormacion.php', $data);     // Usamos la variable data que es el array asociativo
     }
 
