@@ -78,7 +78,7 @@
                 <!-- Campo Peso -->
                 <div class="form-group">
                     <label for="txtPeso">Peso</label>
-                    <input type="text" name="txtPeso" id="txtPeso" class="form-control" required>
+                    <input type="text" step="0.01" name="txtPeso" id="txtPeso" class="form-control" required>
                 </div>
 
                 <!-- Campo Estatura -->
@@ -130,7 +130,7 @@
                         <?php
                             if (isset($grupos) && is_array($grupos)) {
                                 foreach ($grupos as $grupo) {
-                                    echo "<option value='{$grupo->id}'>{$grupo->nombre}</option>";
+                                    echo "<option value='{$grupo->id}'>{$grupo->ficha}</option>";
                                 }
                             } else {
                                 echo "ERROR";
@@ -162,9 +162,9 @@
                     <select name="txtFkIdTipoUserGym" id="txtFkIdTipoUserGym" required>
                         <option value=''>Selecciona un tipo de usuario gym</option>
                         <?php
-                            if (isset($tiposUserGym) && is_array($tiposUserGym)) {
-                                foreach ($tiposUserGym as $tipoUserGym) {
-                                    echo "<option value='{$tipoUserGym->id}'>{$tipoUserGym->nombre}</option>";
+                            if (isset($tiposUsuariosGym) && is_array($tiposUsuariosGym)) {
+                                foreach ($tiposUsuariosGym as $tiposUsuariosGym) {
+                                    echo "<option value='{$tiposUsuariosGym->id}'>{$tiposUsuariosGym->nombre}</option>";
                                 }
                             } else {
                                 echo "ERROR";

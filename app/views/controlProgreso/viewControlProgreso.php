@@ -20,7 +20,7 @@
                 } else {
                     foreach ($controles as $key => $value) {
                         echo "<div class='record'>
-                            <span>ID: $value->id - Fecha: $value->fechaRealizacion - Usuario: $value->nombreUsuario</span>
+                            <span>ID: $value->id - Fecha: $value->fechaRealizacion - Usuario: $value->fkIdUsuario</span>
                             <div class='buttons'>
                                 <a href='/controlProgreso/view/$value->id'>Consultar</a>
                                 <a href='/controlProgreso/edit/$value->id'>Editar</a>

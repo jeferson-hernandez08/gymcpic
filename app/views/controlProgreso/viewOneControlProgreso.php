@@ -36,7 +36,7 @@
                             <span>Examen Médico: $controlProgreso->examenMedico</span>
                             <span>Observaciones: $controlProgreso->observaciones</span>
                             <span>Fecha del Examen: $controlProgreso->fechaExamen</span>
-                            <span>Usuario: $controlProgreso->nombreUsuario</span>
+                            <span>Usuario: $controlProgreso->fkIdUsuario</span>
                           </div>";
                 }
             ?>

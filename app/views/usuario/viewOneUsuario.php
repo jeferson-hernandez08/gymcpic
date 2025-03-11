@@ -37,7 +37,7 @@
                             <span>Contraseña: ******** (almacenada de manera segura)</span>
                             <span>Observaciones: $usuario->observaciones</span>
                             <span>Rol: $usuario->nombreRol</span>
-                            <span>Grupo: $usuario->nombreGrupo</span>
+                            <span>Grupo: $usuario->nombreFicha</span>
                             <span>Centro de Formación: $usuario->nombreCentro</span>
                             <span>Tipo de Usuario Gym: $usuario->nombreTipoUserGym</span>
                           </div>";

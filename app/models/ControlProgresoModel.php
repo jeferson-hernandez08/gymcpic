@@ -65,10 +65,10 @@ class ControlProgresoModel extends BaseModel {
 
     public function getControlProgreso($id) {
         try {
-            $sql = "SELECT controlprogreso.*, usuarios.nombre AS nombreUsuario 
+            $sql = "SELECT controlprogreso.*, usuario.nombre AS hola 
                     FROM controlprogreso 
-                    INNER JOIN usuarios 
-                    ON controlprogreso.fkIdUsuario = usuarios.id 
+                    INNER JOIN usuario 
+                    ON controlprogreso.fkIdUsuario = usuario.id 
                     WHERE controlprogreso.id=:id";
             $statement = $this->dbConnection->prepare($sql);
             $statement->bindParam(":id", $id, PDO::PARAM_INT);

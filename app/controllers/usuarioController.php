@@ -4,14 +4,14 @@ use App\Models\UsuarioModel;
 use App\Models\RolModel; // Importar la clase RolModel
 use App\Models\GrupoModel; // Importar la clase GrupoModel
 use App\Models\CentroFormacionModel; // Importar la clase CentroFormacionModel
-use App\Models\TipoUserGymModel; // Importar la clase TipoUserGymModel
+use App\Models\TipoUsuarioGymModel; // Importar la clase TipoUsuarioGymModel
 
 require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 require_once MAIN_APP_ROUTE."../models/RolModel.php";
 require_once MAIN_APP_ROUTE."../models/GrupoModel.php";
 require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
-//require_once MAIN_APP_ROUTE."../models/TipoUserGymModel.php";
+require_once MAIN_APP_ROUTE."../models/TipoUsuarioGymModel.php";
 
 class UsuarioController extends BaseController {
     public function index(){
@@ -41,15 +41,15 @@ class UsuarioController extends BaseController {
         $centroObj = new CentroFormacionModel();
         $centros = $centroObj->getAll();
 
-        // $tipoUserGymObj = new TipoUserGymModel();
-        // $tiposUserGym = $tipoUserGymObj->getAll();
+        $tipoUserGymObj = new TipoUsuarioGymModel();
+        $tiposUsuariosGym = $tipoUserGymObj->getAll();
         
         // Llamamos a la vista
         $data = [
             "roles" => $roles,
             "grupos" => $grupos,
             "centros" => $centros,
-            //"tiposUserGym" => $tiposUserGym
+            "tiposUsuariosGym" => $tiposUsuariosGym
         ];
         $this->render('usuario/newUsuario.php', $data);
     }
@@ -108,15 +108,15 @@ class UsuarioController extends BaseController {
         $centroObj = new CentroFormacionModel();
         $centros = $centroObj->getAll();
 
-        // $tipoUserGymObj = new TipoUserGymModel();
-        // $tiposUserGym = $tipoUserGymObj->getAll();
+        $tipoUsuarioGymObj = new TipoUsuarioGymModel();
+        $tiposUsuariosGym = $tipoUsuarioGymObj->getAll();
 
         $data = [
             "usuario" => $usuarioInfo,
             "roles" => $roles,
             "grupos" => $grupos,
             "centros" => $centros,
-            //"tiposUserGym" => $tiposUserGym
+            "tiposUsuariosGym" => $tiposUsuariosGym
         ];
         $this->render('usuario/editUsuario.php', $data);
     }

@@ -141,9 +141,9 @@
                             if (isset($grupos) && is_array($grupos)) {
                                 foreach ($grupos as $grupo) {
                                     if ($usuario->FkIdGrupo == $grupo->id) {
-                                        echo "<option value='{$grupo->id}' selected>{$grupo->nombre}</option>";
+                                        echo "<option value='{$grupo->id}' selected>{$grupo->ficha}</option>";
                                     } else {
-                                        echo "<option value='{$grupo->id}'>{$grupo->nombre}</option>";
+                                        echo "<option value='{$grupo->id}'>{$grupo->ficha}</option>";
                                     }
                                 }
                             } else {
@@ -180,12 +180,12 @@
                     <select name="txtFkIdTipoUserGym" id="txtFkIdTipoUserGym">
                         <option value=''>Selecciona un tipo de usuario gym</option>
                         <?php
-                            if (isset($tiposUserGym) && is_array($tiposUserGym)) {
-                                foreach ($tiposUserGym as $tipoUserGym) {
-                                    if ($usuario->FkIdTipoUserGym == $tipoUserGym->id) {
-                                        echo "<option value='{$tipoUserGym->id}' selected>{$tipoUserGym->nombre}</option>";
+                            if (isset($tiposUsuariosGym) && is_array($tiposUsuariosGym)) {
+                                foreach ($tiposUsuariosGym as $tipoUsuarioGym) {
+                                    if ($usuario->FkIdTipoUserGym == $tipoUsuarioGym->id) {
+                                        echo "<option value='{$tipoUsuarioGym->id}' selected>{$tipoUsuarioGym->nombre}</option>";
                                     } else {
-                                        echo "<option value='{$tipoUserGym->id}'>{$tipoUserGym->nombre}</option>";
+                                        echo "<option value='{$tipoUsuarioGym->id}'>{$tipoUsuarioGym->nombre}</option>";
                                     }
                                 }
                             } else {

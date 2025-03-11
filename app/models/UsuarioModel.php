@@ -72,12 +72,12 @@ class UsuarioModel extends BaseModel {
 
     public function getUsuario($id) {
         try {
-            $sql = "SELECT usuario.*, rol.nombre AS nombreRol, grupo.nombre AS nombreGrupo, centroformacion.nombre AS nombreCentro, tipousergym.nombre AS nombreTipoUserGym 
+            $sql = "SELECT usuario.*, rol.nombre AS nombreRol, grupo.ficha AS nombreFicha, centroformacion.nombre AS nombreCentro, tipousuariogym.nombre AS nombreTipoUserGym 
                     FROM usuario 
                     INNER JOIN rol ON usuario.FkIdRol = rol.id 
                     INNER JOIN grupo ON usuario.FkIdGrupo = grupo.id 
                     INNER JOIN centroformacion ON usuario.FkIdCentroFormacion = centroformacion.id 
-                    INNER JOIN tipousergym ON usuario.FkIdTipoUserGym = tipousergym.id 
+                    INNER JOIN tipousuariogym ON usuario.FkIdTipoUserGym = tipousuariogym.id 
                     WHERE usuario.id=:id";
             $statement = $this->dbConnection->prepare($sql);
             $statement->bindParam(":id", $id, PDO::PARAM_INT);
