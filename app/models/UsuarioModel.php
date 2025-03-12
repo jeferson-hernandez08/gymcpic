@@ -34,6 +34,38 @@ class UsuarioModel extends BaseModel {
         parent::__construct();
     }
 
+    public function validarLogin() {
+        $sql = "SELECT * FROM $this->table WHERE email=:email";  // Buscamos en la BD un usuario
+        // 1. Se prepara la consulta
+        $statement = $this->dbConnection->prepare($sql);
+
+        // 2. BindParam para sanitizar los datos de entrada
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+
+        // 3. Ejecutar la consulta
+        $result = $statement->execute();
+        $resultSet = [];
+        while($row = $statement->fetch(PDO::FETCH_OBJ)) {
+            $resultSet[] = $row;
+
+        }
+        if(count($resultSet) > 0) {
+            $hast = $resultSet[0]->password;      // Y accedemos al password
+            if(password_verify($pass, $hash)) {      // Validamos el passwor y hash si conciden
+                //La contraseña Ingresada es correcta
+                $_SESSION['nombre'] = $resultSet[0]->nombre;
+                $_SESSION['documento'] = $resultSet[0]->documento;
+                $_SESSION['rol'] = $resultSet[0]->fkIdRol;
+                $_SESSION['timeout'] = $time();
+                session_regenerate_id();
+                return true;
+            }
+        }
+        return false;
+
+
+    }
+
     public function saveUsuario($nombre, $tipoDocumento, $documento, $fechaNacimiento, $email, $genero, $estado, $telefono, $eps, $tipoSangre, $peso, $estatura, $telefonoEmergencia, $password, $observaciones, $fkIdRol, $fkIdGrupo, $fkIdCentroFormacion, $fkIdTipoUserGym) {
         try {
             $sql = "INSERT INTO $this->table (nombre, tipoDocumento, documento, fechaNacimiento, email, genero, estado, telefono, eps, tipoSangre, peso, estatura, telefonoEmergencia, password, observaciones, FkIdRol, FkIdGrupo, FkIdCentroFormacion, FkIdTipoUserGym) 

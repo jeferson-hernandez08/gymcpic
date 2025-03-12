@@ -61,7 +61,7 @@ html, body {
 }
 
 .sidebar {
-    border: solid red 5px;
+    border: solid blue 5px;
     width: 250px;
     background-color: #333;
     color: white;
@@ -401,10 +401,16 @@ body.dark-mode .menu a:hover {
 
 /* Funcionabilidad de Funcionabilidad de Sidebar o del evento para despliegue sidebar  */
 .sidebar-hidden {
-    display: none;
+    width: 70px;
+    transition: width 0.6s ease-in-out;
+
+    .info-text, .logo-text {
+        display: none;
+    }
 }
 
 .sidebar {
-    transition: all 0.3s ease;
+    transition: width 0.6s ease-in-out;
 }
+
 

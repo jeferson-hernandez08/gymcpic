@@ -20,15 +20,15 @@
                 </div>
                 <nav class="menu">
                     <ul>
-                        <li><a href=""><i class="fas fa-building"></i><span>Centros</span></a></li>
-                        <li><a href=""><i class="fas fa-dumbbell"></i><span>Programas</span></a></li>
-                        <li><a href=""><i class="fas fa-user-tag"></i><span>Roles</span></a></li>
-                        <li><a href=""><i class="fas fa-running"></i><span>Actividades</span></a></li>
-                        <li><a href=""><i class="fas fa-user"></i><span>Usuario</span></a></li>
-                        <li><a href=""><i class="fas fa-users"></i><span>Grupo</span></a></li>
-                        <li><a href=""><i class="fas fa-id-badge"></i><span>Rol</span></a></li>
-                        <li><a href=""><i class="fas fa-chart-line"></i><span>Control Progreso</span></a></li>
-                        <li><a href=""><i class="fas fa-sign-in-alt"></i><span>Registro Ingreso</span></a></li>
+                        <li><a href=""><i class="fas fa-building"></i><span class="info-text">Centros</span></a></li>
+                        <li><a href=""><i class="fas fa-dumbbell"></i><span class="info-text">Programas</span></a></li>
+                        <li><a href=""><i class="fas fa-user-tag"></i><span class="info-text">Roles</span></a></li>
+                        <li><a href=""><i class="fas fa-running"></i><span class="info-text">Actividades</span></a></li>
+                        <li><a href=""><i class="fas fa-user"></i><span class="info-text">Usuario</span></a></li>
+                        <li><a href=""><i class="fas fa-users"></i><span class="info-text">Grupo</span></a></li>
+                        <li><a href=""><i class="fas fa-id-badge"></i><span class="info-text">Rol</span></a></li>
+                        <li><a href=""><i class="fas fa-chart-line"></i><span class="info-text">Control Progreso</span></a></li>
+                        <li><a href=""><i class="fas fa-sign-in-alt"></i><span class="info-text">Registro Ingreso</span></a></li>
                     </ul>
                 </nav>
             </div>

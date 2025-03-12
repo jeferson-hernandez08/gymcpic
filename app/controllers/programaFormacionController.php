@@ -11,6 +11,8 @@ class ProgramaFormacionController extends BaseController {
     public function __construct(){
         # Se define a plantilla para este controlador
         $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
     }
 
 
