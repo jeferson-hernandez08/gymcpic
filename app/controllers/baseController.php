@@ -2,12 +2,10 @@
 namespace App\Controllers;
 
 class BaseController {
-    protected string $layaot = "main_layout";
+    protected string $layout = "main_layout";
+
     public function render(string $view, array $arrayData = null) {
-        // Ejemplo 1 de capture
-        // echo "<pre>";
-        // print_r($arrayData);
-        // echo "</pre>";
+        
         if(isset($arrayData) && is_array($arrayData)) {
             foreach ($arrayData as $key => $value) {
                 // Ejemplo 2 
@@ -19,8 +17,8 @@ class BaseController {
                 $$key = $value;
             }
         }
-        $content_once = MAIN_APP_ROUTE. "../views/$view";
-        $layout = MAIN_APP_ROUTE. "../views/layouts/{$this->layout.php}";
+        $content = MAIN_APP_ROUTE. "../views/$view";
+        $layout = MAIN_APP_ROUTE. "../views/layouts/{$this->layout}.php";
         include_once $layout;   // rols/viewRol.php
         //echo "<br>Renderiza la página con datos";
     }

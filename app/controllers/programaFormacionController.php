@@ -27,7 +27,7 @@ class ProgramaFormacionController extends BaseController {
         
         // Llamamos a la vista
         $data = [
-            "title"     => "programas Formación",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
+            "title"     => "Programas Formación",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
             "programas" => $programas
         ];
         $this->render('programaFormacion/viewProgramaFormacion.php', $data);     // Usamos la variable data que es el array asociativo
