@@ -319,6 +319,12 @@ return [         // Prueba cimmit | base contrller , programa formacion controll
         'action' => 'deleteUsuario'
     ],
 
+    //Login
+    '/login/init' => [
+        'controller' => 'App\Controllers\loginController',
+        'action' => 'initLogin'
+    ],
+
 
 
 ];

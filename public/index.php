@@ -11,6 +11,7 @@ require_once '../app/controllers/registroIngresoController.php';
 require_once '../app/controllers/tipoUsuarioGymController.php';
 require_once '../app/controllers/controlProgresoController.php';
 require_once '../app/controllers/usuarioController.php';
+require_once '../app/controllers/loginController.php';
 
 
 $url = $_SERVER['REQUEST_URI'];   // Detecta lo que se ingresa en la url

@@ -54,7 +54,7 @@ class UsuarioModel extends BaseModel {
             if(password_verify($pass, $hash)) {      // Validamos el passwor y hash si conciden
                 //La contraseña Ingresada es correcta
                 $_SESSION['nombre'] = $resultSet[0]->nombre;
-                $_SESSION['documento'] = $resultSet[0]->documento;
+                $_SESSION['id'] = $resultSet[0]->documento;
                 $_SESSION['rol'] = $resultSet[0]->fkIdRol;
                 $_SESSION['timeout'] = $time();
                 session_regenerate_id();

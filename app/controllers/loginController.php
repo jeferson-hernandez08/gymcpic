@@ -1,7 +1,10 @@
 <?php
-
+namespace App\Controllers;
 use App\Controllers\BaseController;
-use App\Controllers\UsuarioModel;
+use App\Models\UsuarioModel;
+
+require_once 'baseController.php';
+require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 
 class LoginController extends BaseController {
     public function __construct() 
@@ -16,12 +19,12 @@ class LoginController extends BaseController {
             $password = trim($_POST['txtPassword']) || null;
             if($user != "" && $password != "") {
                 // Se valida la existencia del usuario y contraseña de la BD.
-                $loginObj = new UsuarioModel;
+                $loginObj = new UsuarioModel();
                 $res = $loginObj->validarLogin($user, $password);
                 if($res) {
                     $this->redirectTo('programaFormacion/view');
                 } else {
-                    $errors = "Uusario y/o contraseña incorrectos";
+                    $errors = "Usuario y/o contraseña incorrectos";
                 }
             } else {
                 $errors = 'El usuario y/o contraseña no puedes ser vacíos';
@@ -29,17 +32,11 @@ class LoginController extends BaseController {
             $data = [
                 'errors' => $errors,
             ];
-            $this.render('login/login', $data);
+            $this->render('login/login.php', $data);
 
         } else {
             // Se renderiza el formulario del login
-            $this.render('login/login');
+            $this->render('login/login.php');
         }
-
-        
-
     }
-
-
-
 }
