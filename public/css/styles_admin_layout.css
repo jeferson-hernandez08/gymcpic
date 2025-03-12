@@ -404,3 +404,7 @@ body.dark-mode .menu a:hover {
     display: none;
 }
 
+.sidebar {
+    transition: all 0.3s ease;
+}
+
