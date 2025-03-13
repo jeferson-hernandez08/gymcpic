@@ -34,7 +34,7 @@ class UsuarioModel extends BaseModel {
         parent::__construct();
     }
 
-    public function validarLogin() {
+    public function validarLogin($email, $password) {       // Contraseña que llega del formulario
         $sql = "SELECT * FROM $this->table WHERE email=:email";  // Buscamos en la BD un usuario
         // 1. Se prepara la consulta
         $statement = $this->dbConnection->prepare($sql);
@@ -50,8 +50,8 @@ class UsuarioModel extends BaseModel {
 
         }
         if(count($resultSet) > 0) {
-            $hast = $resultSet[0]->password;      // Y accedemos al password
-            if(password_verify($pass, $hash)) {      // Validamos el passwor y hash si conciden
+            $hast = $resultSet[0]->password;      // Y accedemos al password | Hash guardado en la base de datos
+            if(password_verify($password, $hash)) {      // Validamos el passwor y hash si conciden
                 //La contraseña Ingresada es correcta
                 $_SESSION['nombre'] = $resultSet[0]->nombre;
                 $_SESSION['id'] = $resultSet[0]->documento;
