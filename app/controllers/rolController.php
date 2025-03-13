@@ -6,11 +6,20 @@ require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/RolModel.php";
 
 class RolController extends BaseController {
+
+    public function __construct(){              // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index() {
         echo "<br>CONTROLLER> RolController";
         echo "<br>ACTION> index";
         $this->redirectTo("rol/view");
     }
+
     public function view() {
         // echo "<br>CONTROLLER> RolController";
         // echo "<br>ACTION> view";
@@ -18,12 +27,20 @@ class RolController extends BaseController {
         $rolObj = new RolModel();
         $roles = $rolObj->getAll();
         // Llamamos a la vista
-        $data = ["roles"=>$roles];
+        $data = [
+            "title" => "Roles",
+            "roles"=>$roles
+        ];
         $this->render('rol/viewRol.php', $data);
     }
 
     public function newRol() {
-        $this->render('rol/newRol.php');      // Renderiza o muestra el formulario
+        // Llamamos a la vista
+        $data = [
+            "title" => "Roles",
+        ];
+
+        $this->render('rol/newRol.php', $data);      // Renderiza o muestra el formulario
     }
     
     public function createRol() {
@@ -44,6 +61,7 @@ class RolController extends BaseController {
         $rolInfo = $rolObj->getRol($id);
         //print_r($rolInfo);
         $data = [
+            "title" => "Roles",
             "rol" => $rolInfo,
         ];
         $this->render('rol/viewOneRol.php', $data);     // Llamamos a la vista, renderizamos la vista y enviamos los datos. 
@@ -53,6 +71,7 @@ class RolController extends BaseController {
         $rolObj = new RolModel();
         $rolInfo = $rolObj->getRol($id);
         $data = [
+            "title" => "Roles",
             "rol" => $rolInfo
         ];
         $this->render('rol/editRol.php', $data); 

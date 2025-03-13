@@ -7,6 +7,14 @@ require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
 
 class CentroFormacionController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index(){
         echo "<br>CONTROLLER> CentroController";
         echo "<br>ACTION> index";
@@ -19,12 +27,20 @@ class CentroFormacionController extends BaseController {
         $centros = $centroObj->getAll();
         
         // Llamamos a la vista
-        $data = ["centros" => $centros];
+        $data = [
+            "title"     => "Centros Formación",
+            "centros" => $centros
+        ];
         $this->render('centroFormacion/viewCentroFormacion.php', $data);
     }
 
     public function newCentroFormacion(){
-        $this->render('centroFormacion/newCentroFormacion.php');
+        // Llamamos a la vista
+        $data = [
+            "title"     => "Centros Formación"
+        ];
+
+        $this->render('centroFormacion/newCentroFormacion.php', $data);
     }
 
     public function createCentroFormacion() {
@@ -45,6 +61,7 @@ class CentroFormacionController extends BaseController {
         $centroFormacionInfo = $centroObj->getCentroFormacion($id);
         //print_r($rolInfo);
         $data = [
+            "title"     => "Centros Formación",
             "centroFormacion" => $centroFormacionInfo,
         ];
         $this->render('centroFormacion/viewOneCentroFormacion.php', $data);     // Llamamos a la vista, renderizamos la vista y enviamos los datos. 
@@ -54,6 +71,7 @@ class CentroFormacionController extends BaseController {
         $centroObj = new CentroFormacionModel();
         $centroFormacionInfo = $centroObj->getCentroFormacion($id);
         $data = [
+            "title"     => "Centros Formación",
             "centroFormacion" => $centroFormacionInfo
         ];
         $this->render('centroFormacion/editCentroFormacion.php', $data); 

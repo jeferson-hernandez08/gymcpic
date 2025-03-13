@@ -8,13 +8,13 @@ require_once MAIN_APP_ROUTE."../models/ProgramaFormacionModel.php";
 require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
 
 class ProgramaFormacionController extends BaseController {
-    public function __construct(){
+    
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
         # Se define a plantilla para este controlador
         $this->layout = "admin_layout";
         // Llamamos al constructor del padre
         parent::__construct();
     }
-
 
     public function index(){
         echo "<br>CONTROLLER> ProgramaFormacionController";
@@ -22,7 +22,32 @@ class ProgramaFormacionController extends BaseController {
         $this->redirectTo("programaFormacion/view");
     }
 
+    public function viewApi() {
+        // Llamamos al modelo de Programa de Formación
+        $programaObj = new ProgramaFormacionModel();
+        $programas = $programaObj->getAll();
+        
+        // Llamamos a la vista
+        $data = [
+            "message"   => "success",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
+            "data" => $programaFormacion,
+            "resp"=> true,
+        ];
+        header('Content-Type: aplication/json');   // Extención: json-formatter.
+        echo json_encode($data);
+    }
+
     public function view() {
+        // Validación de sesión de usuario
+        if (!isset($_SESSION['rol'])) {
+            header ('Location: /login/init');
+        } else {
+            if (in_array($_SESSION['rol'], [1,2])) {   // admin, trainer
+                header ('Location: /login/init');
+
+            }
+        }
+
         // Llamamos al modelo de Programa de Formación
         $programaObj = new ProgramaFormacionModel();
         $programas = $programaObj->getAll();
@@ -35,13 +60,26 @@ class ProgramaFormacionController extends BaseController {
         $this->render('programaFormacion/viewProgramaFormacion.php', $data);     // Usamos la variable data que es el array asociativo
     }
 
-    public function newProgramaFormacion(){
+    public function newProgramaFormacion() {
+        // Validación de sesión de usuario
+        if (!isset($_SESSION['rol'])) {
+            header ('Location: /login/init');
+        } else {
+            if (in_array($_SESSION['rol'], [1])) {   // admin
+                header ('Location: /login/init');
+
+            }
+        }
+
         // Logica para capturar centros de formacion
         $centroObj = new CentroFormacionModel();
         $centros = $centroObj->getAll();
         
         // Llamamos a la vista
-        $data = ["centros" => $centros];
+        $data = [
+            "title"     => "Programas Formación",
+            "centros" => $centros
+        ];
         $this->render('programaFormacion/newProgramaFormacion.php', $data);
     }
 
@@ -64,6 +102,7 @@ class ProgramaFormacionController extends BaseController {
         $programaObj = new ProgramaFormacionModel();
         $programaInfo = $programaObj->getProgramaFormacion($id);
         $data = [
+            "title"     => "Programas Formación",
             'programa' => $programaInfo
         ];
         $this->render('programaFormacion/viewOneProgramaFormacion.php', $data);
@@ -75,6 +114,7 @@ class ProgramaFormacionController extends BaseController {
         $centrosObj = new CentroFormacionModel();
         $centrosInfo = $centrosObj->getAll();
         $data = [
+            "title"     => "Programas Formación",
             "programa" => $programaInfo,
             "centros" => $centrosInfo
         ];

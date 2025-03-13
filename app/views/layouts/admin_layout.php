@@ -21,8 +21,10 @@
                 </div>
                 <nav class="menu">
                     <ul>
-                        <li><a href=""><i class="fas fa-building"></i><span class="info-text">Centros</span></a></li>
-                        <li><a href=""><i class="fas fa-dumbbell"></i><span class="info-text">Programas</span></a></li>
+                        <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 1): ?>
+                            <li><a href="/centroFormacion/view"><i class="fas fa-building"></i><span class="info-text">Centros</span></a></li>
+                            <li><a href="/programaFormacion/view"><i class="fas fa-dumbbell"></i><span class="info-text">Programas</span></a></li>
+                        <?php endif ?>   
                         <li><a href=""><i class="fas fa-user-tag"></i><span class="info-text">Roles</span></a></li>
                         <li><a href=""><i class="fas fa-running"></i><span class="info-text">Actividades</span></a></li>
                         <li><a href=""><i class="fas fa-user"></i><span class="info-text">Usuario</span></a></li>
@@ -30,6 +32,13 @@
                         <li><a href=""><i class="fas fa-id-badge"></i><span class="info-text">Rol</span></a></li>
                         <li><a href=""><i class="fas fa-chart-line"></i><span class="info-text">Control Progreso</span></a></li>
                         <li><a href=""><i class="fas fa-sign-in-alt"></i><span class="info-text">Registro Ingreso</span></a></li>
+                        <?php if(isset($_SESSION['nombre'])) {  ?> 
+                        <li><a href="/login/logout">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span class="info-text">Cerrar sesión (<?php echo $_SESSION['nombre'] ?? "";?>)</span>
+                            </a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>

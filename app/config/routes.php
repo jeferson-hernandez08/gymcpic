@@ -324,6 +324,21 @@ return [         // Prueba cimmit | base contrller , programa formacion controll
         'controller' => 'App\Controllers\loginController',
         'action' => 'initLogin'
     ],
+    '/login/test' => [
+        'controller' => 'App\Controllers\loginController',
+        'action' => 'testBcrypt'
+    ],
+    '/login/logout' => [
+        'controller' => 'App\Controllers\loginController',
+        'action' => 'logoutLogin'
+    ],
+    '/api/programa/view' => [
+        'controller' => 'App\Controllers\programaFormacionController',
+        'action' => 'viewApi'
+    ],
+
+    // Realizacion del render
+    // usuario | programaFormacion | rol | centroFormacion
 
 
 

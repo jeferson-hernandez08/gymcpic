@@ -1,4 +1,3 @@
-
 <div class="data-container">
     <div class="navegate-group">
         <div class="back">
@@ -13,15 +12,21 @@
             if (empty($programas)) {
                 echo "<br>No se encuentran programas de formación en la base de datos";
             } else {
+                $html = "";
                 foreach ($programas as $key => $value) {
-                    echo "<div class='record'>
-                        <span>ID: $value->id - $value->codigo - $value->nombre - $value->FkIdCentroFormacion</span>
+                    if(isset($_SESSION['rol']) && $_SESSION['rol'] == 2):
+                        $html .= "<a href='/programaFormacion/edit/{$value->id}'> <button>Editar</button> </a>
+                                <a href='/programaFormacion/delete/{$value->id}'> <button>Eliminar</button> </a>";
+                    endif;
+                    echo 
+                    "<div class='record'>
+                        <span>ID: $value->id $value->nombre</span>
                         <div class='buttons'>
-                            <a href='/programaFormacion/view/$value->id'>Consultar</a>
-                            <a href='/programaFormacion/edit/$value->id'>Editar</a>
-                            <a href='/programaFormacion/delete/$value->id'>Eliminar</a>
+                            <a href='/programaFormacion/view/$value->id'><button>Consultar</button> </a>
+                            $html
                         </div>
                     </div>";
+                    $html = "";
                 }
             }
         ?>

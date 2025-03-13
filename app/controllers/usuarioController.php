@@ -14,6 +14,14 @@ require_once MAIN_APP_ROUTE."../models/CentroFormacionModel.php";
 require_once MAIN_APP_ROUTE."../models/TipoUsuarioGymModel.php";
 
 class UsuarioController extends BaseController {
+    
+    public function __construct(){                     // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index(){
         echo "<br>CONTROLLER> UsuarioController";
         echo "<br>ACTION> index";
@@ -26,7 +34,10 @@ class UsuarioController extends BaseController {
         $usuarios = $usuarioObj->getAll();
         
         // Llamamos a la vista
-        $data = ["usuarios" => $usuarios];
+        $data = [
+            "title"     => "Usuarios",
+            "usuarios" => $usuarios
+        ];
         $this->render('usuario/viewUsuario.php', $data);     // Usamos la variable data que es el array asociativo
     }
 
@@ -46,6 +57,7 @@ class UsuarioController extends BaseController {
         
         // Llamamos a la vista
         $data = [
+            "title"     => "Usuarios",
             "roles" => $roles,
             "grupos" => $grupos,
             "centros" => $centros,
@@ -70,16 +82,17 @@ class UsuarioController extends BaseController {
             $estatura = $_POST['txtEstatura'] ?? null;
             $telefonoEmergencia = $_POST['txtTelefonoEmergencia'] ?? null;
             $password = $_POST['txtPassword'] ?? null;
+            $passwordHashed = password_hash($password, PASSWORD_DEFAULT);      // Nos tiene que llegar la hash a la BD
             $observaciones = $_POST['txtObservaciones'] ?? null;
             $fkIdRol = $_POST['txtFkIdRol'] ?? null;
             $fkIdGrupo = $_POST['txtFkIdGrupo'] ?? null;
             $fkIdCentroFormacion = $_POST['txtFkIdCentroFormacion'] ?? null;
             $fkIdTipoUserGym = $_POST['txtFkIdTipoUserGym'] ?? null;
-
+            
             // Creamos instancia del Modelo Usuario
             $usuarioObj = new UsuarioModel();
             // Se llama al método que guarda en la base de datos
-            $usuarioObj->saveUsuario($nombre, $tipoDocumento, $documento, $fechaNacimiento, $email, $genero, $estado, $telefono, $eps, $tipoSangre, $peso, $estatura, $telefonoEmergencia, $password, $observaciones, $fkIdRol, $fkIdGrupo, $fkIdCentroFormacion, $fkIdTipoUserGym);
+            $usuarioObj->saveUsuario($nombre, $tipoDocumento, $documento, $fechaNacimiento, $email, $genero, $estado, $telefono, $eps, $tipoSangre, $peso, $estatura, $telefonoEmergencia, $passwordHashed, $observaciones, $fkIdRol, $fkIdGrupo, $fkIdCentroFormacion, $fkIdTipoUserGym);
             $this->redirectTo("usuario/view");
         } else {
             echo "No se capturaron todos los datos necesarios";
@@ -90,6 +103,7 @@ class UsuarioController extends BaseController {
         $usuarioObj = new UsuarioModel();
         $usuarioInfo = $usuarioObj->getUsuario($id);
         $data = [
+            "title"     => "Usuarios",
             'usuario' => $usuarioInfo
         ];
         $this->render('usuario/viewOneUsuario.php', $data);
@@ -112,6 +126,7 @@ class UsuarioController extends BaseController {
         $tiposUsuariosGym = $tipoUsuarioGymObj->getAll();
 
         $data = [
+            "title"     => "Usuarios",
             "usuario" => $usuarioInfo,
             "roles" => $roles,
             "grupos" => $grupos,
