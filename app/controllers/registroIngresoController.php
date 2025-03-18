@@ -1,17 +1,25 @@
 <?php
-namespace App\Controllers;                  
+
+namespace App\Controllers;  
+                
 use App\Models\RegistroIngresoModel;
 use App\Models\UsuarioModel; // Importar la clase UsuarioModel
 use App\Models\ActividadModel; // Importar la clase ActividadModel
-use App\Models\TrainerModel; // Importar la clase TrainerModel    // DUDA 
 
 require_once 'baseController.php';
 require_once MAIN_APP_ROUTE."../models/RegistroIngresoModel.php";
 require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 require_once MAIN_APP_ROUTE."../models/ActividadModel.php";
-//require_once MAIN_APP_ROUTE."../models/TrainerModel.php";       // DUDA
 
 class RegistroIngresoController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index(){
         echo "<br>CONTROLLER> RegistroIngresoController";
         echo "<br>ACTION> index";
@@ -24,7 +32,10 @@ class RegistroIngresoController extends BaseController {
         $registros = $registroObj->getAll();
         
         // Llamamos a la vista
-        $data = ["registros" => $registros];
+        $data = [
+            "title"     => "Registro Ingreso",
+            "registros" => $registros
+        ];
         $this->render('registroIngreso/viewRegistroIngreso.php', $data);     // Usamos la variable data que es el array asociativo
     }
 
@@ -32,14 +43,13 @@ class RegistroIngresoController extends BaseController {
         // Lógica para capturar usuarios, actividades y trainers
         $usuarioObj = new UsuarioModel();
         $actividadObj = new ActividadModel();
-        //$trainerObj = new TrainerModel();        // DUDA
         
         $usuarios = $usuarioObj->getAll();
         $actividades = $actividadObj->getAll();
-        //$trainers = $trainerObj->getAll();
         
         // Llamamos a la vista
         $data = [
+            "title"     => "Nuevo Registro Ingreso",
             "usuarios" => $usuarios,
             "actividades" => $actividades,
             //"trainers" => $trainers
@@ -70,6 +80,7 @@ class RegistroIngresoController extends BaseController {
         $registroObj = new RegistroIngresoModel();
         $registroInfo = $registroObj->getRegistroIngreso($id);
         $data = [
+            "title"     => "Registro Ingreso",
             'registro' => $registroInfo
         ];
         $this->render('registroIngreso/viewOneRegistroIngreso.php', $data);
@@ -88,6 +99,7 @@ class RegistroIngresoController extends BaseController {
         //$trainersInfo = $trainerObj->getAll();
         
         $data = [
+            "title"     => "Editar Registro Ingreso",
             "registro" => $registroInfo,
             "usuarios" => $usuariosInfo,
             "actividades" => $actividadesInfo,

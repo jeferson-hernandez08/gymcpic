@@ -44,15 +44,14 @@ class RegistroIngresoModel extends BaseModel {
 
     public function getRegistroIngreso($id) {
         try {
-            $sql = "SELECT registroingreso.*, 
-                           usuario.nombre AS nombreUsuario, 
-                           actividad.nombre AS nombreActividad, 
-                           trainer.nombre AS nombreTrainer 
-                    FROM registroingreso 
-                    INNER JOIN usuario ON registroingreso.FkIdUserGym = usuario.id 
-                    INNER JOIN actividad ON registroingreso.FkIdActividad = actividad.id 
-                    INNER JOIN trainer ON registroingreso.FkIdTrainer = trainer.id 
-                    WHERE registroingreso.id=:id";
+            $sql = "SELECT * FROM $this->table WHERE id=:id";         // Otra forma mas corta
+            // $sql = "SELECT registroingreso.*, 
+            //                usuario.nombre AS nombreUsuario, 
+            //                actividad.nombre AS nombreActividad
+            //         FROM registroingreso 
+            //         INNER JOIN usuario ON registroingreso.FkIdUserGym = usuario.id 
+            //         INNER JOIN actividad ON registroingreso.FkIdActividad = actividad.id 
+            //         WHERE registroingreso.id=:id";
             $statement = $this->dbConnection->prepare($sql);
             $statement->bindParam(":id", $id, PDO::PARAM_INT);
             $statement->execute();

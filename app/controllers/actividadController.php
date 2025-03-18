@@ -6,6 +6,13 @@ require_once 'baseController.php';
 require_once MAIN_APP_ROUTE . "../models/ActividadModel.php";
 
 class ActividadController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
     
     public function index() {
         echo "<br>CONTROLLER> ActividadController";
@@ -19,12 +26,18 @@ class ActividadController extends BaseController {
         $actividades = $actividadObj->getAll();
         
         // Llamamos a la vista
-        $data = ["actividades" => $actividades];     
+        $data = [
+            "title"       => "Actividad",
+            "actividades" => $actividades
+        ];     
         $this->render('actividad/viewActividad.php', $data);    // data de actividades
     }
 
     public function newActividad(){
-        $this->render('actividad/newActividad.php');
+        $data = [
+            "title" => "Actividad"
+        ];
+        $this->render('actividad/newActividad.php',$data);
     }
 
     public function createActividad() {
@@ -46,7 +59,8 @@ class ActividadController extends BaseController {
         $actividadInfo = $actividadObj->getActividad($id);
         //print_r($rolInfo);
         $data = [
-            "actividad" => $actividadInfo,
+            "title"     => "Actividad",
+            "actividad" => $actividadInfo
         ];
         $this->render('actividad/viewOneActividad.php', $data);     // Llamamos a la vista, renderizamos la vista y enviamos los datos. 
     }
@@ -55,6 +69,7 @@ class ActividadController extends BaseController {
         $actividadObj = new ActividadModel();
         $actividadInfo = $actividadObj->getActividad($id);
         $data = [
+            "title"     => "Actividad",
             "actividad" => $actividadInfo
         ];
         $this->render('actividad/editActividad.php', $data); 

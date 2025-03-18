@@ -1,4 +1,9 @@
 <div class="data-container">
+    <div class="navegate-group">
+        <div class="back">
+            <a href="/centroFormacion/view"><img src="/img/back.svg"></a>
+        </div>
+    </div>
     <form action="/centroFormacion/update" method="post">
         <div class="form-group">
             <label for="txtId">Id del centro de formacion</label>

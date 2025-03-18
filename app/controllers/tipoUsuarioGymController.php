@@ -6,6 +6,14 @@ require_once 'baseController.php';
 require_once MAIN_APP_ROUTE . "../models/TipoUsuarioGymModel.php";
 
 class TipoUsuarioGymController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     /**
      * Método principal que redirige a la vista de tipos de usuario.
      */
@@ -24,7 +32,10 @@ class TipoUsuarioGymController extends BaseController {
         $tiposUsuario = $tipoUsuarioObj->getAll();
 
         // Llamamos a la vista
-        $data = ["tiposUsuario" => $tiposUsuario];
+        $data = [
+            "title"        => "Tipo Usuario Gym",
+            "tiposUsuario" => $tiposUsuario
+        ];
         $this->render('tipoUsuarioGym/viewTipoUsuarioGym.php', $data); // Usamos la variable data que es el array asociativo
     }
 
@@ -32,8 +43,11 @@ class TipoUsuarioGymController extends BaseController {
      * Método para mostrar el formulario de creación de un nuevo tipo de usuario.
      */
     public function newTipoUsuarioGym() {
+        $data = [
+            "title"        => "Tipo Usuario Gym"
+        ];
         // Llamamos a la vista
-        $this->render('tipoUsuarioGym/newTipoUsuarioGym.php');
+        $this->render('tipoUsuarioGym/newTipoUsuarioGym.php', $data);
     }
 
     /**
@@ -62,6 +76,7 @@ class TipoUsuarioGymController extends BaseController {
         $tipoUsuarioObj = new TipoUsuarioGymModel();
         $tipoUsuarioInfo = $tipoUsuarioObj->getTipoUsuarioGym($id);
         $data = [
+            "title"        => "Tipo Usuario Gym",
             'tipoUsuario' => $tipoUsuarioInfo
         ];
         $this->render('tipoUsuarioGym/viewOneTipoUsuarioGym.php', $data);
@@ -76,6 +91,7 @@ class TipoUsuarioGymController extends BaseController {
         $tipoUsuarioObj = new TipoUsuarioGymModel();
         $tipoUsuarioInfo = $tipoUsuarioObj->getTipoUsuarioGym($id);
         $data = [
+            "title"        => "Tipo Usuario Gym",
             "tipoUsuario" => $tipoUsuarioInfo
         ];
         $this->render('tipoUsuarioGym/editTipoUsuarioGym.php', $data);

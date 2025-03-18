@@ -1,4 +1,9 @@
 <div class="data-container">
+    <div class="navegate-group">
+        <div class="back">
+            <a href="/usuario/view"><img src="/img/back.svg"></a>
+        </div>
+    </div>
     <form action="/usuario/update" method="post">
         <!-- Campo ID (oculto) -->
         <div class="form-group">

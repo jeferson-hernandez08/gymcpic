@@ -1,4 +1,9 @@
 <div class="data-container">
+    <div class="navegate-group">
+        <div class="back">
+            <a href="/rol/view"><img src="/img/back.svg"></a>
+        </div>
+    </div>
     <form action="/rol/update" method="post">
         <div class="form-group">
             <label for="txtId">Id del rol</label>

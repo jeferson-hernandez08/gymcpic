@@ -8,6 +8,14 @@ require_once MAIN_APP_ROUTE."../models/GrupoModel.php";
 require_once MAIN_APP_ROUTE."../models/ProgramaFormacionModel.php";
 
 class GrupoController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index(){
         echo "<br>CONTROLLER> GrupoController";
         echo "<br>ACTION> index";
@@ -20,7 +28,10 @@ class GrupoController extends BaseController {
         $grupos = $grupoObj->getAll();
         
         // Llamamos a la vista
-        $data = ["grupos" => $grupos];
+        $data = [
+            "title"  => "Grupos",
+            "grupos" => $grupos
+        ];
         $this->render('grupo/viewGrupo.php', $data);     // Usamos la variable data que es el array asociativo
     }
 
@@ -30,7 +41,10 @@ class GrupoController extends BaseController {
         $programas = $programaFormacionObj->getAll();
         
         // Llamamos a la vista
-        $data = ["programas" => $programas];
+        $data = [
+            "title"  => "Grupos",
+            "programas" => $programas
+        ];
         $this->render('grupo/newGrupo.php', $data);
     }
 
@@ -58,6 +72,7 @@ class GrupoController extends BaseController {
         $grupoObj = new GrupoModel();
         $grupoInfo = $grupoObj->getGrupo($id);
         $data = [
+            "title"  => "Grupos",
             'grupo' => $grupoInfo
         ];
         $this->render('grupo/viewOneGrupo.php', $data);
@@ -69,6 +84,7 @@ class GrupoController extends BaseController {
         $programaFormacionObj = new ProgramaFormacionModel();
         $programasInfo = $programaFormacionObj->getAll();
         $data = [
+            "title"  => "Grupos",
             "grupo" => $grupoInfo,
             "programas" => $programasInfo
         ];

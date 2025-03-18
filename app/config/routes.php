@@ -337,9 +337,19 @@ return [         // Prueba cimmit | base contrller , programa formacion controll
         'action' => 'viewApi'
     ],
 
-    // Realizacion del render
-    // usuario | programaFormacion | rol | centroFormacion
+    // Realizaciones del render:
+    /*     
+    actividad |  Ok
+    centroFormacion | OK
+    controlProgreso | 
+    grupo |
+    programaFormacion | 
+    registroIngreso *** | 
+    rol | 
+    tipoUsuarioGym |
+    usuario | 
 
 
+    */
 
 ];

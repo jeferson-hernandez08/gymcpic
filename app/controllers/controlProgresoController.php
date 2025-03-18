@@ -8,6 +8,14 @@ require_once MAIN_APP_ROUTE."../models/ControlProgresoModel.php";
 require_once MAIN_APP_ROUTE."../models/UsuarioModel.php";
 
 class ControlProgresoController extends BaseController {
+
+    public function __construct(){         // Para que nos cargue y nos renderize es con esta funcion. 
+        # Se define a plantilla para este controlador
+        $this->layout = "admin_layout";
+        // Llamamos al constructor del padre
+        parent::__construct();
+    }
+
     public function index(){
         echo "<br>CONTROLLER> ControlProgresoController";
         echo "<br>ACTION> index";
@@ -20,7 +28,10 @@ class ControlProgresoController extends BaseController {
         $controles = $controlProgresoObj->getAll();
         
         // Llamamos a la vista
-        $data = ["controles" => $controles];
+        $data = [
+            "title"     => "Control Progreso",
+            "controles" => $controles
+        ];
         $this->render('controlProgreso/viewControlProgreso.php', $data); // Usamos la variable data que es el array asociativo
     }
 
@@ -30,7 +41,10 @@ class ControlProgresoController extends BaseController {
         $usuarios = $usuarioObj->getAll();
         
         // Llamamos a la vista
-        $data = ["usuarios" => $usuarios];
+        $data = [
+            "title"    => "Control Progreso",
+            "usuarios" => $usuarios
+        ];
         $this->render('controlProgreso/newControlProgreso.php', $data);
     }
 
@@ -67,6 +81,7 @@ class ControlProgresoController extends BaseController {
         $controlProgresoObj = new ControlProgresoModel();
         $controlProgresoInfo = $controlProgresoObj->getControlProgreso($id);
         $data = [
+            "title"           => "Control Progreso",
             'controlProgreso' => $controlProgresoInfo
         ];
         $this->render('controlProgreso/viewOneControlProgreso.php', $data);
@@ -78,8 +93,9 @@ class ControlProgresoController extends BaseController {
         $usuarioObj = new UsuarioModel();
         $usuariosInfo = $usuarioObj->getAll();
         $data = [
+            "title"           => "Control Progreso",
             "controlProgreso" => $controlProgresoInfo,
-            "usuarios" => $usuariosInfo
+            "usuarios"        => $usuariosInfo
         ];
         $this->render('controlProgreso/editControlProgreso.php', $data);
     }

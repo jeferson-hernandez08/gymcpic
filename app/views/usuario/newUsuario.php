@@ -1,5 +1,9 @@
-
 <div class="data-container">
+    <div class="navegate-group">
+        <div class="back">
+            <a href="/usuario/view"><img src="/img/back.svg"></a>
+        </div>
+    </div>
     <form action="/usuario/create" method="post">
         <!-- Campo Nombre -->
         <div class="form-group">

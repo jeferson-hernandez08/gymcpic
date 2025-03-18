@@ -1,4 +1,9 @@
 <div class="data-container">
+    <div class="navegate-group">
+        <div class="back">
+            <a href="/rol/view"><img src="/img/back.svg"></a>
+        </div>
+    </div>
     <?php
         if($rol && is_object($rol)) {
             // echo "<pre>";
