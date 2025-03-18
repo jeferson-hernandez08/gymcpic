@@ -14,11 +14,11 @@
             } else {
                 foreach ($grupos as $key => $value) {
                     echo "<div class='record'>
-                        <span>ID: $value->id - $value->ficha - $value->cantAprendices - $value->estado - $value->fechaIniLectiva - $value->fechaFinLectiva - $value->fkIdProgForm</span>
+                        <span>ID: $value->id - $value->ficha</span>
                         <div class='buttons'>
-                            <a href='/grupo/view/$value->id'>Consultar</a>
-                            <a href='/grupo/edit/$value->id'>Editar</a>
-                            <a href='/grupo/delete/$value->id'>Eliminar</a>
+                            <a href='/grupo/view/$value->id'> <button>Consultar</button> </a>
+                            <a href='/grupo/edit/$value->id'> <button>Editar</button> </a>
+                            <a href='/grupo/delete/$value->id'> <button>Eliminar</button> </a>
                         </div>
                     </div>";
                 }

@@ -16,7 +16,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-content">
                 <div class="logo">
-                    <img src="" alt="">
+                    <img src="/img/icon_gym.png" alt="logoImg">   <!--  ../../../public -->
                     <span class="logo-text">GymCPIC</span>
                 </div>
                 <nav class="menu">
@@ -25,10 +25,10 @@
                             <li><a href="/centroFormacion/view"><i class="fas fa-building"></i><span class="info-text">Centros</span></a></li>
                             <li><a href="/programaFormacion/view"><i class="fas fa-dumbbell"></i><span class="info-text">Programas</span></a></li>
                         <?php endif ?>   
-                        <li><a href=""><i class="fas fa-user-tag"></i><span class="info-text">Roles</span></a></li>
-                        <li><a href=""><i class="fas fa-running"></i><span class="info-text">Actividades</span></a></li>
-                        <li><a href=""><i class="fas fa-user"></i><span class="info-text">Usuario</span></a></li>
-                        <li><a href=""><i class="fas fa-users"></i><span class="info-text">Grupo</span></a></li>
+                        <li><a href="/rol/view"><i class="fas fa-user-tag"></i><span class="info-text">Roles</span></a></li>
+                        <li><a href="/actividad/view"><i class="fas fa-running"></i><span class="info-text">Actividades</span></a></li>
+                        <li><a href="/usuario/view"><i class="fas fa-user"></i><span class="info-text">Usuario</span></a></li>
+                        <li><a href="/grupo/view"><i class="fas fa-users"></i><span class="info-text">Grupo</span></a></li>
                         <li><a href=""><i class="fas fa-id-badge"></i><span class="info-text">Rol</span></a></li>
                         <li><a href=""><i class="fas fa-chart-line"></i><span class="info-text">Control Progreso</span></a></li>
                         <li><a href=""><i class="fas fa-sign-in-alt"></i><span class="info-text">Registro Ingreso</span></a></li>

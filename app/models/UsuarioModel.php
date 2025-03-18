@@ -50,13 +50,13 @@ class UsuarioModel extends BaseModel {
 
         }
         if(count($resultSet) > 0) {
-            $hast = $resultSet[0]->password;      // Y accedemos al password | Hash guardado en la base de datos
+            $hash = $resultSet[0]->password;      // Y accedemos al password | Hash guardado en la base de datos
             if(password_verify($password, $hash)) {      // Validamos el passwor y hash si conciden
                 //La contraseña Ingresada es correcta
                 $_SESSION['nombre'] = $resultSet[0]->nombre;
                 $_SESSION['id'] = $resultSet[0]->documento;
                 $_SESSION['rol'] = $resultSet[0]->fkIdRol;
-                $_SESSION['timeout'] = $time();
+                $_SESSION['timeout'] = time();
                 session_regenerate_id();
                 return true;
             }

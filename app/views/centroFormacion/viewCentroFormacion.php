@@ -16,9 +16,9 @@
                 echo "<div class='record'>
                 <span>ID: $value->id - $value->nombre</span>
                 <div class='buttons'>
-                    <a href='/centroFormacion/view/$value->id'>Consultar</a>
-                    <a href='/centroFormacion/edit/$value->id'>Editar</a>
-                    <a href='/centroFormacion/delete/$value->id'>Eliminar</a>
+                    <a href='/centroFormacion/view/$value->id'> <button>Consultar</button> </a>
+                    <a href='/centroFormacion/edit/$value->id'> <button>Editar</button> </a>
+                    <a href='/centroFormacion/delete/$value->id'> <button>Eliminar</button> </a>
                 </div>
                 </div>";
             }
