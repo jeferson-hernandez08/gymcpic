@@ -29,9 +29,9 @@
                         <li><a href="/actividad/view"><i class="fas fa-running"></i><span class="info-text">Actividades</span></a></li>
                         <li><a href="/usuario/view"><i class="fas fa-user"></i><span class="info-text">Usuario</span></a></li>
                         <li><a href="/grupo/view"><i class="fas fa-users"></i><span class="info-text">Grupo</span></a></li>
-                        <li><a href=""><i class="fas fa-id-badge"></i><span class="info-text">Rol</span></a></li>
-                        <li><a href=""><i class="fas fa-chart-line"></i><span class="info-text">Control Progreso</span></a></li>
-                        <li><a href=""><i class="fas fa-sign-in-alt"></i><span class="info-text">Registro Ingreso</span></a></li>
+                        <li><a href="/tipoUsuarioGym/view"><i class="fas fa-id-badge"></i><span class="info-text">Tipo Usuario</span></a></li>
+                        <li><a href="/controlProgreso/view"><i class="fas fa-chart-line"></i><span class="info-text">Control Progreso</span></a></li>
+                        <li><a href="/registroIngreso/view"><i class="fas fa-sign-in-alt"></i><span class="info-text">Registro Ingreso</span></a></li>
                         <?php if(isset($_SESSION['nombre'])) {  ?> 
                         <li><a href="/login/logout">
                                 <i class="fas fa-sign-in-alt"></i>

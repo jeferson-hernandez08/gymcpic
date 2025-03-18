@@ -22,31 +22,31 @@ class ProgramaFormacionController extends BaseController {
         $this->redirectTo("programaFormacion/view");
     }
 
-    public function viewApi() {
-        // Llamamos al modelo de Programa de Formación
-        $programaObj = new ProgramaFormacionModel();
-        $programas = $programaObj->getAll();
+    // public function viewApi() {
+    //     // Llamamos al modelo de Programa de Formación
+    //     $programaObj = new ProgramaFormacionModel();
+    //     $programas = $programaObj->getAll();
         
-        // Llamamos a la vista
-        $data = [
-            "message"   => "success",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
-            "data" => $programaFormacion,
-            "resp"=> true,
-        ];
-        header('Content-Type: aplication/json');   // Extención: json-formatter.
-        echo json_encode($data);
-    }
+    //     // Llamamos a la vista
+    //     $data = [
+    //         "message"   => "success",      // Hacer lo mismo con todos. | Luego vamos a title de admin_layout
+    //         "data" => $programaFormacion,
+    //         "resp"=> true,
+    //     ];
+    //     header('Content-Type: aplication/json');   // Extención: json-formatter.
+    //     echo json_encode($data);
+    // }
 
     public function view() {
         // Validación de sesión de usuario
-        if (!isset($_SESSION['rol'])) {
-            header ('Location: /login/init');
-        } else {
-            if (in_array($_SESSION['rol'], [1,2])) {   // admin, trainer
-                header ('Location: /login/init');
+        // if (!isset($_SESSION['rol'])) {
+        //     header ('Location: /login/init');
+        // } else {
+        //     if (!in_array($_SESSION['rol'], [1,2])) {   // admin, trainer
+        //         header ('Location: /login/init');
 
-            }
-        }
+        //     }
+        // }
 
         // Llamamos al modelo de Programa de Formación
         $programaObj = new ProgramaFormacionModel();
@@ -62,14 +62,14 @@ class ProgramaFormacionController extends BaseController {
 
     public function newProgramaFormacion() {
         // Validación de sesión de usuario
-        if (!isset($_SESSION['rol'])) {
-            header ('Location: /login/init');
-        } else {
-            if (in_array($_SESSION['rol'], [1])) {   // admin
-                header ('Location: /login/init');
+        // if (!isset($_SESSION['rol'])) {
+        //     header ('Location: /login/init');
+        // } else {
+        //     if (!in_array($_SESSION['rol'], [1])) {   // admin
+        //         header ('Location: /login/init');
 
-            }
-        }
+        //     }
+        // }
 
         // Logica para capturar centros de formacion
         $centroObj = new CentroFormacionModel();

@@ -104,16 +104,18 @@ class UsuarioModel extends BaseModel {
 
     public function getUsuario($id) {
         try {
-            $sql = "SELECT usuario.*, rol.nombre AS nombreRol, grupo.ficha AS nombreFicha, centroformacion.nombre AS nombreCentro, tipousuariogym.nombre AS nombreTipoUserGym 
-                    FROM usuario 
-                    INNER JOIN rol ON usuario.FkIdRol = rol.id 
-                    INNER JOIN grupo ON usuario.FkIdGrupo = grupo.id 
-                    INNER JOIN centroformacion ON usuario.FkIdCentroFormacion = centroformacion.id 
-                    INNER JOIN tipousuariogym ON usuario.FkIdTipoUserGym = tipousuariogym.id 
-                    WHERE usuario.id=:id";
+            $sql = "SELECT * FROM $this->table WHERE id=:id";     // Forma corta
+            // $sql = "SELECT usuario.*, rol.nombre AS nombreRol, grupo.ficha AS nombreFicha, centroformacion.nombre AS nombreCentro, tipousuariogym.nombre AS nombreTipoUserGym 
+            //         FROM usuario 
+            //         INNER JOIN rol ON usuario.FkIdRol = rol.id 
+            //         INNER JOIN grupo ON usuario.FkIdGrupo = grupo.id 
+            //         INNER JOIN centroformacion ON usuario.FkIdCentroFormacion = centroformacion.id 
+            //         INNER JOIN tipousuariogym ON usuario.FkIdTipoUserGym = tipousuariogym.id 
+            //         WHERE usuario.id=:id";
             $statement = $this->dbConnection->prepare($sql);
             $statement->bindParam(":id", $id, PDO::PARAM_INT);
             $statement->execute();
+            //return $statement->fetch(PDO::FETCH_OBJ);   // Forma corta
             $result = $statement->fetchAll(PDO::FETCH_OBJ);
             return $result[0]; 
         } catch (PDOException $ex) {

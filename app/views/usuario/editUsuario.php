@@ -116,19 +116,9 @@
                 <label for="txtFkIdRol">Rol</label>
                 <select name="txtFkIdRol" id="txtFkIdRol">
                     <option value=''>Selecciona un rol</option>
-                    <?php
-                        if (isset($roles) && is_array($roles)) {
-                            foreach ($roles as $key => $value) {
-                                if ($usuario->FkIdRol == $value->id) {
-                                    echo "<option value=".$value->id." selected>".$value->nombre."</option>";
-                                } else {
-                                    echo "<option value=".$value->id.">".$value->nombre."</option>";
-                                }
-                            }
-                        } else {
-                            echo "ERROR";
-                        }
-                    ?>
+                    <?php foreach ($roles as $rol): ?>
+                        <option value="<?php echo $rol->id; ?>" <?php echo $usuario->fkIdRol == $rol->id ? 'selected' : ''; ?>><?php echo $rol->nombre; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
     
@@ -137,19 +127,9 @@
                 <label for="txtFkIdGrupo">Grupo</label>
                 <select name="txtFkIdGrupo" id="txtFkIdGrupo">
                     <option value=''>Selecciona un grupo</option>
-                    <?php
-                        if (isset($grupos) && is_array($grupos)) {
-                            foreach ($grupos as $grupo) {
-                                if ($usuario->FkIdGrupo == $grupo->id) {
-                                    echo "<option value='{$grupo->id}' selected>{$grupo->ficha}</option>";
-                                } else {
-                                    echo "<option value='{$grupo->id}'>{$grupo->ficha}</option>";
-                                }
-                            }
-                        } else {
-                            echo "ERROR";
-                        }
-                    ?>
+                    <?php foreach ($grupos as $grupo): ?>
+                        <option value="<?php echo $grupo->id; ?>" <?php echo $usuario->fkIdGrupo == $grupo->id ? 'selected' : ''; ?>><?php echo $grupo->ficha; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
     
@@ -158,19 +138,9 @@
                 <label for="txtFkIdCentroFormacion">Centro de Formación</label>
                 <select name="txtFkIdCentroFormacion" id="txtFkIdCentroFormacion">
                     <option value=''>Selecciona un centro de formación</option>
-                    <?php
-                        if (isset($centros) && is_array($centros)) {
-                            foreach ($centros as $centro) {
-                                if ($usuario->FkIdCentroFormacion == $centro->id) {
-                                    echo "<option value='{$centro->id}' selected>{$centro->nombre}</option>";
-                                } else {
-                                    echo "<option value='{$centro->id}'>{$centro->nombre}</option>";
-                                }
-                            }
-                        } else {
-                            echo "ERROR";
-                        }
-                    ?>
+                    <?php foreach ($centros as $centro): ?>
+                        <option value="<?php echo $centro->id; ?>" <?php echo $usuario->fkIdCentroFormacion == $centro->id ? 'selected' : ''; ?>><?php echo $centro->nombre; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
     
