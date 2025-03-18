@@ -4,15 +4,17 @@
             <a href="/rol/view"><img src="/img/back.svg"></a>
         </div>
     </div>
-    <form action="/rol/create" method="post">
+    <div class="info">
         <form action="/rol/create" method="post">
-            <div class="form-group">
-                <label for="">Nombre del rol</label>
-                <input type="text" name="txtNombre" id="txtNombre">
-            </div>
-            <div class="form-group">
-                <button type="submit">Guardar</button>
-            </div>
+            <form action="/rol/create" method="post">
+                <div class="form-group">
+                    <label for="">Nombre del rol</label>
+                    <input type="text" name="txtNombre" id="txtNombre">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Guardar</button>
+                </div>
+            </form>
         </form>
-    </form>
+    </div>
 </div>

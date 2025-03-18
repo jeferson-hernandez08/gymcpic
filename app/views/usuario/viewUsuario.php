@@ -14,7 +14,7 @@
             } else {
                 foreach ($usuarios as $key => $value) {
                     echo "<div class='record'>
-                        <span>ID: $value->id - $value->nombre - $value->tipoDocumento - $value->documento - $value->email</span>
+                        <span>ID: $value->id - $value->nombre</span>    
                         <div class='buttons'>
                             <a href='/usuario/view/$value->id'>Consultar</a>
                             <a href='/usuario/edit/$value->id'>Editar</a>

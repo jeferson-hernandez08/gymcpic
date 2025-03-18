@@ -14,7 +14,7 @@
             } else {
                 foreach ($registros as $registro => $value) {
                     echo "<div class='record'>
-                        <span>ID: $value->id - Fecha In: $value->fechaIn - Fecha Out: $value->fechaOut - Usuario: $value->fkIdUserGym - Actividad: $value->fkIdActividad - Trainer: $value->fkIdTrainer</span>
+                        <span>ID: $value->id - Usuario: $value->fkIdUserGym</span>
                         <div class='buttons'>
                             <a href='/registroIngreso/view/$value->id'>Consultar</a>
                             <a href='/registroIngreso/edit/$value->id'>Editar</a>

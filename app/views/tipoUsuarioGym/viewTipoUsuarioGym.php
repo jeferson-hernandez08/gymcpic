@@ -16,9 +16,9 @@
                     echo "<div class='record'>
                         <span>ID: $value->id - $value->nombre</span>
                         <div class='buttons'>
-                            <a href='/tipoUsuarioGym/view/$value->id'>Consultar</a>
-                            <a href='/tipoUsuarioGym/edit/$value->id'>Editar</a>
-                            <a href='/tipoUsuarioGym/delete/$value->id'>Eliminar</a>
+                            <a href='/tipoUsuarioGym/view/$value->id'> <button>Consultar</button> </a>
+                            <a href='/tipoUsuarioGym/edit/$value->id'> <button>Editar</button> </a>
+                            <a href='/tipoUsuarioGym/delete/$value->id'> <button>Eliminar</button> </a>
                         </div>
                     </div>";
                 }
