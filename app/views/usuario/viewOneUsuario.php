@@ -27,10 +27,10 @@
                         <span>Teléfono de Emergencia: $usuario->telefonoEmergencia</span>
                         <span>Contraseña: ******** (almacenada de manera segura)</span>
                         <span>Observaciones: $usuario->observaciones</span>
-                        <span>Rol: $usuario->nombreRol</span>
-                        <span>Grupo: $usuario->nombreFicha</span>
-                        <span>Centro de Formación: $usuario->nombreCentro</span>
-                        <span>Tipo de Usuario Gym: $usuario->nombreTipoUserGym</span>
+                        <span>Rol: $usuario->fkIdRol</span>
+                        <span>Grupo: $usuario->fkIdGrupo</span>
+                        <span>Centro de Formación: $usuario->fkIdCentroFormacion</span>
+                        <span>Tipo de Usuario Gym: $usuario->fkIdTipoUserGym</span>
                     </div>";
             }
         ?>
