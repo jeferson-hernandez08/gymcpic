@@ -1,5 +1,5 @@
 <?php
-return [         // Prueba cimmit | base contrller , programa formacion controller | genera un código css para un reset 
+return [         // Prueba cimmit | base contrller , programa formacion controller | genera un código css para un reset | Prueba commit
     "/" => [
         'controller' => 'App\Controllers\HomeController',
         'action' => 'index'
